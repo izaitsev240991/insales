@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap");
+@import "mixin";
+$text: rgba(40, 47, 54, 0.8);
+$textLg: #282f36;
+$textSm: rgba(40, 47, 54, 0.5);
+$lineBg: #555555;
+$clickBg: #419aee;
+* {
+    font-family: "Roboto", sans-serif;
+}
+body {
+    background: #fafafa;
+}
+.text {
+    color: $text;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+
+    &-lg {
+        font-weight: 900;
+        font-size: 16px;
+        line-height: 25px;
+        color: $textLg;
+    }
+    &-sm {
+        font-size: 12px;
+        line-height: 15px;
+        font-weight: normal;
+        color: $textSm;
+    }
+}
+.card {
+    &-block {
+        max-width: 945px;
+        background: #ffffff;
+        margin: 94px auto 159px;
+        @include _767{
+            padding: 28px 0 0;
+        }
+        &_title {
+            padding: 20px;
+            @include _767{
+                padding: 10px 16px 16px;
+            }
+            &-best {
+                font-size: 12px;
+                line-height: 15px;
+                letter-spacing: 1px;
+                color: #6e99ae;
+                margin: 0 0 10px;
+                @include _767{
+                    margin: 0;
+                }
+            }
+            .text-lg {
+                margin: 0 0 10px;
+                @include _767{
+                    margin: 0 0 16px;
+                }
+            }
+            &-img {
+                width: 12.13px;
+                height: 11.54px;
+                background: url("../img/Star.svg") center no-repeat;
+                background-size: contain;
+                &.half {
+                    background: url("../img/StarHalf.svg") center no-repeat;
+                    background-size: contain;
+                    & + .text-sm {
+                        margin: 0 0 0 6px;
+                    }
+                }
+            }
+        }
+
+        &_desc {
+            padding: 26px 20px 0;
+            min-height: 277px;
+            border-top: 1.5px solid rgba(40, 47, 54, 0.07);
+            border-bottom: 1.5px solid rgba(40, 47, 54, 0.07);
+            @include _767{
+                padding: 0 16px 16px;
+                border-top: none;
+                border-bottom: none;
+                min-height: auto;
+            }
+        }
+        &_select {
+            padding: 20px;
+            position: relative;
+            @include _767{
+                padding: 0 16px 30px;
+                &:before{
+                    display: none;
+                }
+            }
+            &:before {
+                content: "";
+                width: calc(100% - 40px);
+                height: 1.5px;
+                background-color: rgba(40, 47, 54, 0.07);
+                position: absolute;
+                bottom: 0;
+                left: 20px;
+            
+            }
+            .form-group {
+                margin: 0 0 20px;
+                &:last-child {
+                    margin: 0;
+                }
+                .label {
+                    min-width: 55px;
+                    margin-bottom: 0;
+                }
+                .form-control {
+                    margin: 0 0 0 20px;
+                    padding: 5px 0 5px 11px;
+                    max-width: 167px;
+                    height: auto;
+                    font-size: 14px;
+                    line-height: 20px;
+                    border: 1px solid rgba(40, 47, 54, 0.15);
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    color: $textLg;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background: url("../img/select.svg") no-repeat;
+                    background-position: calc(100% - 12px) 50%;
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+                &_vol {
+                    width: 106px;
+                    height: 30px;
+                    margin: 0 0 0 20px;
+                    border: 1px solid rgba(40, 47, 54, 0.15);
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    position: relative;
+                    &-available {
+                        margin: 0 0 0 13px;
+                    }
+                    &-value {
+                        font-weight: 500;
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: $textLg;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    &-inc,
+                    &-dec {
+                        width: 30px;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        cursor: pointer;
+                        @include transition;
+                        &:hover {
+                            background: rgba(40, 47, 54, 0.15);
+                        }
+                        &:before {
+                            content: "";
+                            width: 10px;
+                            height: 10px;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background-size: cover;
+                        }
+                    }
+                    &-dec {
+                        left: 0;
+                        border-radius: 5px 0 0 5px;
+                        &:before {
+                            background: url("../img/dec.svg") center no-repeat;
+                        }
+                    }
+                    &-inc {
+                        right: 0;
+                        border-radius: 0 5px 5px 0;
+                        &:before {
+                            background: url("../img/inc.svg") center no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+        &_buy {
+            padding: 18px 20px 20px;
+            @include _767{
+                padding: 0 16px 27px;
+            }
+            &-price {
+                margin: 0 17px 0 0;
+                font-weight: 900;
+                font-size: 20px;
+                line-height: 25px;
+                color: $textLg;
+            }
+            &-oldprice {
+                position: relative;
+                &:before {
+                    content: "";
+                    width: 130%;
+                    height: 1px;
+                    background: #555;
+                    position: absolute;
+                    top: 9px;
+                    left: -15%;
+                }
+            }
+            &-like,
+            &-info {
+                width: 33px;
+                height: 33px;
+                border-radius: 50%;
+                display: inline-block;
+                @include transition;
+            }
+            &-like {
+                margin: 0 14px 0 0;
+                background: url("../img/heart.svg") center no-repeat;
+                background-size: cover;
+                &:hover {
+                    background: rgba(40, 47, 54, 0.15) url("../img/heart.svg") center no-repeat;
+                    background-size: cover;
+                }
+            }
+            &-info {
+                background: url("../img/info.svg") center no-repeat;
+                background-size: cover;
+                &:hover {
+                    background: rgba(40, 47, 54, 0.15) url("../img/info.svg") center no-repeat;
+                    background-size: cover;
+                }
+            }
+            &-btns {
+                margin: 20px 0 0 0;
+                @include _767{
+                    margin: 30px 0 0;
+                }
+            }
+            &-click {
+                margin: 0 6px 0 0;
+                width: 142px;
+                height: 31px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid $clickBg;
+                background: $clickBg;
+                border-radius: 6px;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 20px;
+                color: #ffffff;
+                @include transition;
+                &:hover {
+                    background: #ffffff;
+                    color: $clickBg;
+                }
+                @include _991 {
+                    width: 100%;
+                    margin: 0;
+                }
+                @include _767 {
+                    margin: 0 6px 0 0;
+                    width: 142px;
+                }
+                @include _575 {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+            &-add {
+                width: 202px;
+                height: 33px;
+                border: 1px solid rgba(40, 47, 54, 0.15);
+                border-radius: 6px;
+                background: #ffffff;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 20px;
+                color: $textLg;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include transition;
+                &:hover {
+                    background: rgba(40, 47, 54, 0.15);
+                    color: #ffffff;
+                }
+                img {
+                    margin: 0 7px 0 0;
+                }
+                @include _991 {
+                    margin: 20px 0 0;
+                    width: 100%;
+                }
+                @include _767 {
+                    width: 202px;
+                    margin: 0;
+                }
+                @include _575 {
+                    margin: 20px 0 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.swiper {
+    height: 100%;
+    @include _767 {
+        height: 288px;
+    }
+    .gallery-top {
+        height: calc(100% - 112px);
+        @include _767 {
+            display: none;
+        }
+        .swiper-slide {
+            background: center no-repeat;
+            background-size: cover;
+        }
+        .swiper-button-next {
+            width: 38px;
+            height: 38px;
+            background: url("../img/slider/next.svg") center no-repeat;
+            background-size: contain;
+            &:after {
+                display: none;
+            }
+        }
+        .swiper-button-prev {
+            display: none;
+        }
+    }
+    .gallery-thumbs {
+        margin: 3px 0 0;
+        height: 109px;
+        .swiper-slide {
+            background: center no-repeat;
+            background-size: cover;
+        }
+        .swiper-pagination {
+            display: none;
+        }
+        @include _767 {
+            height: 100%;
+            margin: 0;
+            padding: 0 16px 19px;
+            .swiper-pagination {
+                display: flex;
+                justify-content: center;
+                bottom: 0;
+                height: 6px;
+                &-bullet {
+                    width: 6px;
+                    height: 6px;
+                    background: rgba(40, 47, 54, 0.2);
+                    @include transition;
+                    &-active{
+                        background: $textLg;
+                    }
+                }
+            }
+        }
+    }
+}
